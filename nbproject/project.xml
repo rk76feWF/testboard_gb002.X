@@ -6,9 +6,9 @@
             <name>testboard_gb002</name>
             <creation-uuid>ac36fd7a-571a-4113-93b3-cdb9c56d13be</creation-uuid>
             <make-project-type>0</make-project-type>
-            <c-extensions/>
+            <c-extensions>c</c-extensions>
             <cpp-extensions/>
-            <header-extensions/>
+            <header-extensions>h</header-extensions>
             <asminc-extensions/>
             <sourceEncoding>UTF-8</sourceEncoding>
             <make-dep-projects/>
