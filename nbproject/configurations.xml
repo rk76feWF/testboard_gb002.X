@@ -15,10 +15,10 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="f1" displayName="utils" projectFiles="true">
-        <itemPath>setup.c</itemPath>
         <itemPath>uart.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
+      <itemPath>setup.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
