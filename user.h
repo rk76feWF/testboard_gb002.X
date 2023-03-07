@@ -19,5 +19,6 @@
 // function prototypes
 void setup(void);
 void UART_setup(void);
+void TIMER_setup(void);
 
 #endif /* USER_H */

@@ -9,7 +9,7 @@ int main(void)
     setup();
     while (1)
     {
-        LED_Toggle();
+        // LED_Toggle();
         __delay_ms(500);
     }
 

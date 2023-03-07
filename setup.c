@@ -13,4 +13,5 @@ void setup(void)
     _TRISA0 = 0; // LED
 
     UART_setup();
+    TIMER_setup();
 }

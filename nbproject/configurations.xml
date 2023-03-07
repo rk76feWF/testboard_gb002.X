@@ -16,6 +16,7 @@
                    projectFiles="true">
       <logicalFolder name="f1" displayName="utils" projectFiles="true">
         <itemPath>uart.c</itemPath>
+        <itemPath>timer.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
       <itemPath>setup.c</itemPath>
