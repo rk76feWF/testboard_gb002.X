@@ -8,6 +8,7 @@ void UART_setup(void)
 {
     U1_setup(38400);
     U2_setup(115100);
+
     return;
 }
 
@@ -60,7 +61,6 @@ void __attribute__((__interrupt__, no_auto_psv)) _U1RXInterrupt(void)
     U1TXREG = U1RXREG;
 
     _U1RXIF = 0;
-    return;
 }
 
 void __attribute__((__interrupt__, no_auto_psv)) _U2RXInterrupt(void)
@@ -68,5 +68,4 @@ void __attribute__((__interrupt__, no_auto_psv)) _U2RXInterrupt(void)
     U2TXREG = U2RXREG;
 
     _U2RXIF = 0;
-    return;
 }

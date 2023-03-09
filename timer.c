@@ -31,5 +31,4 @@ void __attribute__((__interrupt__, no_auto_psv)) _T2Interrupt(void)
     LED_Toggle();
 
     _T2IF = 0; // clear interrupt flag
-    return;
 }
