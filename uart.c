@@ -69,3 +69,15 @@ void __attribute__((__interrupt__, no_auto_psv)) _U2RXInterrupt(void)
 
     _U2RXIF = 0;
 }
+
+void prints(char *str)
+{
+    while (*str != '\0')
+    {
+        while (U2STAbits.TRMT == 0)
+            ;
+        U2TXREG = *str++;
+    }
+
+    return;
+}
