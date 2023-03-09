@@ -3,45 +3,29 @@
 
 void T2_setup(int, int);
 
+static inline unsigned short int get_tckps(int prescaler);
+
 void TIMER_setup(void)
 {
     // (1/16000000) * prescaler * period
 
-    // (1/16000000) * 256 * 1250 = 0.02s
-    T2_setup(256, 1250);
+    T2_setup(256, 1250); // (1/16000000) * 256 * 1250 = 0.02s
 
     return;
 }
 
 void T2_setup(int prescaler, int period)
 {
+    unsigned short int TCKPS = get_tckps(prescaler);
+
+    // エラー処理
+    if (TCKPS == -1 || period > 65535)
+        return;
+
     T2CON = 0x0000;
-
-    unsigned short int TCKPS = 0;
-    switch (prescaler)
-    {
-    case 1:
-        TCKPS = 0b00;
-        break;
-    case 8:
-        TCKPS = 0b01;
-        break;
-    case 64:
-        TCKPS = 0b10;
-        break;
-    case 256:
-        TCKPS = 0b11;
-        break;
-    default:
-        return;
-    }
-
-    if (period > 65535)
-        return;
-
     T2CONbits.TCKPS = TCKPS; // 1:256 prescaler
 
-    PR2 = period; // period
+    PR2 = period; // set period
     _T2IE = 1;    // enable interrupt
     _T2IP = 6;    // interrupt priority
     _T2IF = 0;    // clear interrupt flag
@@ -57,4 +41,21 @@ void __attribute__((__interrupt__, no_auto_psv)) _T2Interrupt(void)
     LED_Toggle();
 
     _T2IF = 0; // clear interrupt flag
+}
+
+static inline unsigned short int get_tckps(int prescaler)
+{
+    switch (prescaler)
+    {
+    case 1:
+        return 0b00;
+    case 8:
+        return 0b01;
+    case 64:
+        return 0b10;
+    case 256:
+        return 0b11;
+    default:
+        return -1;
+    }
 }
