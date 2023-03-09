@@ -10,7 +10,6 @@ int main(void)
     while (1)
     {
         // LED_Toggle();
-        prints("Hello World!\n");
         __delay_ms(500);
     }
 
