@@ -5,6 +5,8 @@ void T2_setup(int, int);
 
 static inline unsigned short int get_tckps(int prescaler);
 
+extern queue_t u1;
+
 void TIMER_setup(void)
 {
     // (1/16000000) * prescaler * period
@@ -38,7 +40,7 @@ void T2_setup(int prescaler, int period)
 
 void __attribute__((__interrupt__, no_auto_psv)) _T2Interrupt(void)
 {
-    LED_Toggle();
+    ps3_read(&u1);
 
     _T2IF = 0; // clear interrupt flag
 }

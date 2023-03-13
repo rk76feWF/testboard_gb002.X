@@ -61,6 +61,7 @@ void U2_setup(long BRG)
 void __attribute__((__interrupt__, no_auto_psv)) _U1RXInterrupt(void)
 {
     enqueue(&u1, U1RXREG);
+    TMR2 = 0x0000;
 
     _U1RXIF = 0;
 }
