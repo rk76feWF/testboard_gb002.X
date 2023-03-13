@@ -23,6 +23,7 @@
       <itemPath>main.c</itemPath>
       <itemPath>setup.c</itemPath>
       <itemPath>ps3.c</itemPath>
+      <itemPath>motor.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

@@ -39,4 +39,7 @@ int dequeue(queue_t *, data_t *);
 
 int ps3_read(queue_t *);
 
+void MOTOR_setup(void);
+int motor(int, double);
+
 #endif /* USER_H */

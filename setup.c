@@ -14,6 +14,7 @@ void setup(void)
 
     UART_setup();
     TIMER_setup();
+    MOTOR_setup();
     PWM_setup();
 
     return;
