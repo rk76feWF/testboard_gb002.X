@@ -9,7 +9,7 @@ void TIMER_setup(void)
 {
     // (1/16000000) * prescaler * period
 
-    T2_setup(256, 1250); // (1/16000000) * 256 * 1250 = 0.02s
+    // T2_setup(256, 1250); // (1/16000000) * 256 * 1250 = 0.02s
 
     return;
 }

@@ -1,13 +1,15 @@
 #include <xc.h>
 #include "user.h"
 
+queue_t u1;
+
 void U1_setup(long);
 void U2_setup(long);
 
 void UART_setup(void)
 {
     U1_setup(38400);
-    U2_setup(115100);
+    U2_setup(115200);
 
     return;
 }
@@ -58,7 +60,7 @@ void U2_setup(long BRG)
 
 void __attribute__((__interrupt__, no_auto_psv)) _U1RXInterrupt(void)
 {
-    U1TXREG = U1RXREG;
+    enqueue(&u1, U1RXREG);
 
     _U1RXIF = 0;
 }
