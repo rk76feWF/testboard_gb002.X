@@ -44,9 +44,15 @@ void __attribute__((__interrupt__, no_auto_psv)) _T2Interrupt(void)
 
     // タイムアウト処理
     if (counter > 100)
+    {
+        LED_SetHigh();
         prints("timeout\n");
+    }
     else
+    {
+        LED_SetLow();
         ++counter;
+    }
 
     if (ps3_read(&u1) == 0)
         counter = 0;

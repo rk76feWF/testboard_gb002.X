@@ -14,6 +14,8 @@
 
 // pin definitions
 #define LED _LATA0
+#define LED_SetLow() LED = 0
+#define LED_SetHigh() LED = 1
 #define LED_Toggle() LED ^= 1
 
 // function prototypes
