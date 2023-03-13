@@ -1,5 +1,5 @@
 #include <xc.h>
-#include <stdlib.h>
+#include <stdio.h>
 #include "user.h"
 
 int ps3_read(queue_t *q)
