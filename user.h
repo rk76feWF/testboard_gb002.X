@@ -23,4 +23,18 @@ void prints(char *);
 void TIMER_setup(void);
 void PWM_setup(void);
 
+// queue
+typedef unsigned char data_t;
+#define MAX_SIZE 128
+
+typedef struct
+{
+    data_t data[MAX_SIZE];
+    int head;
+    int size;
+} queue_t;
+
+int enqueue(queue_t *, data_t);
+int dequeue(queue_t *, data_t *);
+
 #endif /* USER_H */
