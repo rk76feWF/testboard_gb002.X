@@ -2,8 +2,6 @@
 #include "config.h"
 #include "user.h"
 
-void setup(void);
-
 int main(void)
 {
     setup();
