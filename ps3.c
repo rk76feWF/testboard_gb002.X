@@ -2,12 +2,12 @@
 #include <stdlib.h>
 #include "user.h"
 
-void ps3_read(queue_t *q)
+int ps3_read(queue_t *q)
 {
     data_t frame[8] = {0, 0, 0, 0, 0, 0, 0, 0};
 
     if (dequeue(q, &frame[0]) == -1)
-        return;
+        return -1;
 
     // frameのサイズと先頭のバイトが正しいか確認
     if (q->size != (8 - 1) || frame[0] != 0x80)
@@ -15,7 +15,7 @@ void ps3_read(queue_t *q)
         // 一度全部捨てる
         q->size = 0;
         q->head = 0;
-        return;
+        return -2;
     }
 
     // 0x80以外のデータを取り出す
@@ -29,7 +29,7 @@ void ps3_read(queue_t *q)
             fcs += frame[i];
 
         if ((fcs & 0x7F) != frame[8 - 1])
-            return;
+            return -3;
     }
 
     // debug
@@ -39,5 +39,5 @@ void ps3_read(queue_t *q)
         prints(str);
     }
 
-    return;
+    return 0;
 }

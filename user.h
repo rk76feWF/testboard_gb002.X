@@ -37,6 +37,6 @@ typedef struct
 int enqueue(queue_t *, data_t);
 int dequeue(queue_t *, data_t *);
 
-void ps3_read(queue_t *);
+int ps3_read(queue_t *);
 
 #endif /* USER_H */

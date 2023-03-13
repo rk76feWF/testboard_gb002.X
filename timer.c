@@ -40,7 +40,16 @@ void T2_setup(int prescaler, int period)
 
 void __attribute__((__interrupt__, no_auto_psv)) _T2Interrupt(void)
 {
-    ps3_read(&u1);
+    static int counter = 0;
+
+    // タイムアウト処理
+    if (counter > 100)
+        prints("timeout\n");
+    else
+        ++counter;
+
+    if (ps3_read(&u1) == 0)
+        counter = 0;
 
     _T2IF = 0; // clear interrupt flag
 }
