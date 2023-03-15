@@ -8,6 +8,7 @@ int ps3_read(queue_t *q)
 {
     data_t frame[8] = {0, 0, 0, 0, 0, 0, 0, 0};
 
+    // queueにデータが格納されていることを確認
     if (dequeue(q, &frame[0]) == -1)
         return -1;
 
