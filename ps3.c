@@ -1,6 +1,7 @@
 #include <xc.h>
 #include <stdio.h>
 #include "user.h"
+#include <math.h>
 
 ps3_t ps3;
 
@@ -45,7 +46,33 @@ int ps3_read(queue_t *q)
         ps3.stick.RStickX = -64 + frame[5];
         ps3.stick.RStickY = 64 - frame[6];
     }
+
+    // 極座標変換
+    {
+        cartesion_to_polar(ps3.stick.LStickX, ps3.stick.LStickY, &ps3.stick.LStickR, &ps3.stick.LStickTheta);
+        cartesion_to_polar(ps3.stick.RStickX, ps3.stick.RStickY, &ps3.stick.RStickR, &ps3.stick.RStickTheta);
+    }
+
     ps3.connected = true;
 
     return 0;
+}
+
+void cartesion_to_polar(int x, int y, double *r, double *theta)
+{
+    *r = sqrt(x * x + y * y);
+    if (*r > 64)
+        *r = 64;
+
+    // 無駄な計算を省略
+    if (x == 0 && y == 0)
+    {
+        *theta = 0;
+        return;
+    }
+
+    *theta = atan2(y, x);
+    *theta = -((*theta) * 180 / M_PI) + 90;
+
+    return;
 }

@@ -41,6 +41,7 @@ int enqueue(queue_t *, data_t);
 int dequeue(queue_t *, data_t *);
 
 int ps3_read(queue_t *);
+void cartesion_to_polar(int, int, double *, double *);
 
 void MOTOR_setup(void);
 int motor(int, double);
@@ -74,8 +75,13 @@ typedef struct
     {
         int LStickX;
         int LStickY;
+        double LStickR;
+        double LStickTheta;
+
         int RStickX;
         int RStickY;
+        double RStickR;
+        double RStickTheta;
     } stick;
 } ps3_t;
 
