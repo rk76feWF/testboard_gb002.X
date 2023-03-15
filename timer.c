@@ -6,6 +6,7 @@ void T2_setup(int, int);
 static inline unsigned short int get_tckps(int prescaler);
 
 extern queue_t u1;
+extern ps3_t ps3;
 
 void TIMER_setup(void)
 {
@@ -46,7 +47,7 @@ void __attribute__((__interrupt__, no_auto_psv)) _T2Interrupt(void)
     if (counter > 100)
     {
         LED_SetHigh();
-        // prints("timeout\n");
+        ps3.connected = false;
     }
     else
     {

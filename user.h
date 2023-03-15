@@ -47,6 +47,8 @@ int motor(int, double);
 
 typedef struct
 {
+    // status
+    bool connected;
     union
     {
         data_t btn_byte[2];

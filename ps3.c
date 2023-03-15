@@ -45,6 +45,7 @@ int ps3_read(queue_t *q)
         ps3.stick.RStickX = -64 + frame[5];
         ps3.stick.RStickY = 64 - frame[6];
     }
+    ps3.connected = true;
 
     return 0;
 }
