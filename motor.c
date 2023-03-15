@@ -31,7 +31,7 @@ void MOTOR_setup(void)
 
 int motor(int number, double velocity)
 {
-    _Bool dir_s1, dir_s2;
+    bool dir_s1, dir_s2;
 
     // velocity: -1.0 ~ 1.0
     if (velocity > 1.0 || velocity < -1.0)

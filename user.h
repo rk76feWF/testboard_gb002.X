@@ -11,6 +11,7 @@
 // delay function
 #define FCY 16000000UL
 #include <libpic30.h>
+#include <stdbool.h>
 
 // pin definitions
 #define LED _LATA0
@@ -51,19 +52,19 @@ typedef struct
         data_t btn_byte[2];
         struct
         {
-            _Bool Square : 1;
-            _Bool L1 : 1;
-            _Bool L2 : 1;
-            _Bool R1 : 1;
-            _Bool R2 : 1;
+            bool Square : 1;
+            bool L1 : 1;
+            bool L2 : 1;
+            bool R1 : 1;
+            bool R2 : 1;
             unsigned : 3;
-            _Bool UP : 1;
-            _Bool DOWN : 1;
-            _Bool RIGHT : 1;
-            _Bool LEFT : 1;
-            _Bool Triangle : 1;
-            _Bool Cross : 1;
-            _Bool Circle : 1;
+            bool UP : 1;
+            bool DOWN : 1;
+            bool RIGHT : 1;
+            bool LEFT : 1;
+            bool Triangle : 1;
+            bool Cross : 1;
+            bool Circle : 1;
             unsigned : 1;
         } btn;
     };
