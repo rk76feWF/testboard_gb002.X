@@ -45,12 +45,5 @@ int ps3_read(queue_t *q)
         ps3.stick.RStickY = 64 - frame[6];
     }
 
-    // debug
-    // {
-    //     char str[64];
-    //     sprintf(str, "data: 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x\n", frame[0], frame[1], frame[2], frame[3], frame[4], frame[5], frame[6], frame[7]);
-    //     prints(str);
-    // }
-
     return 0;
 }
