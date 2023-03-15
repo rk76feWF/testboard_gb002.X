@@ -85,4 +85,7 @@ typedef struct
     } stick;
 } ps3_t;
 
+void polar_to_omni4_duty(ps3_t *, double *);
+void move(ps3_t *ps3);
+
 #endif /* USER_H */
