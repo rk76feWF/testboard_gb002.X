@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include "user.h"
 
+ps3_t ps3;
+
 int ps3_read(queue_t *q)
 {
     data_t frame[8] = {0, 0, 0, 0, 0, 0, 0, 0};
@@ -32,12 +34,23 @@ int ps3_read(queue_t *q)
             return -3;
     }
 
-    // debug
+    // データをps3_tに格納
     {
-        char str[64];
-        sprintf(str, "data: 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x\n", frame[0], frame[1], frame[2], frame[3], frame[4], frame[5], frame[6], frame[7]);
-        prints(str);
+        ps3.btn_byte[0] = frame[1];
+        ps3.btn_byte[1] = frame[2];
+
+        ps3.stick.LStickX = -64 + frame[3];
+        ps3.stick.LStickY = 64 - frame[4];
+        ps3.stick.RStickX = -64 + frame[5];
+        ps3.stick.RStickY = 64 - frame[6];
     }
+
+    // debug
+    // {
+    //     char str[64];
+    //     sprintf(str, "data: 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x\n", frame[0], frame[1], frame[2], frame[3], frame[4], frame[5], frame[6], frame[7]);
+    //     prints(str);
+    // }
 
     return 0;
 }

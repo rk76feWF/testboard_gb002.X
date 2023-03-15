@@ -46,7 +46,7 @@ void __attribute__((__interrupt__, no_auto_psv)) _T2Interrupt(void)
     if (counter > 100)
     {
         LED_SetHigh();
-        prints("timeout\n");
+        // prints("timeout\n");
     }
     else
     {

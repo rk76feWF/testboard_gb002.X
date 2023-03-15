@@ -44,4 +44,36 @@ int ps3_read(queue_t *);
 void MOTOR_setup(void);
 int motor(int, double);
 
+typedef struct
+{
+    union
+    {
+        data_t btn_byte[2];
+        struct
+        {
+            _Bool Square : 1;
+            _Bool L1 : 1;
+            _Bool L2 : 1;
+            _Bool R1 : 1;
+            _Bool R2 : 1;
+            unsigned : 3;
+            _Bool UP : 1;
+            _Bool DOWN : 1;
+            _Bool RIGHT : 1;
+            _Bool LEFT : 1;
+            _Bool Triangle : 1;
+            _Bool Cross : 1;
+            _Bool Circle : 1;
+            unsigned : 1;
+        } btn;
+    };
+    struct
+    {
+        int LStickX;
+        int LStickY;
+        int RStickX;
+        int RStickY;
+    } stick;
+} ps3_t;
+
 #endif /* USER_H */
