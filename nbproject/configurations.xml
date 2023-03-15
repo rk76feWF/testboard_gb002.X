@@ -6,6 +6,10 @@
                    projectFiles="true">
       <itemPath>config.h</itemPath>
       <itemPath>user.h</itemPath>
+      <itemPath>queue.h</itemPath>
+      <itemPath>ps3.h</itemPath>
+      <itemPath>pin.h</itemPath>
+      <itemPath>function.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"

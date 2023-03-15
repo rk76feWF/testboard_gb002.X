@@ -1,7 +1,5 @@
 #include <xc.h>
-#include <stdio.h>
 #include "user.h"
-#include <math.h>
 
 ps3_t ps3;
 

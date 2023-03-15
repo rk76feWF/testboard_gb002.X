@@ -1,6 +1,5 @@
 #include <xc.h>
 #include "user.h"
-#include <math.h>
 
 void move(ps3_t *ps3)
 {

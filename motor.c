@@ -2,16 +2,6 @@
 #include "user.h"
 #include <math.h>
 
-#define M1S1 _LATA2
-#define M1S2 _LATA3
-#define M2S1 _LATB5
-#define M2S2 _LATA4
-
-#define M3S1 _LATA1
-#define M3S2 _LATB2
-#define M4S1 _LATB13
-#define M4S2 _LATB3
-
 void MOTOR_setup(void)
 {
     // LAN1
