@@ -71,8 +71,7 @@ void cartesion_to_polar(int x, int y, double *r, double *theta)
         return;
     }
 
-    *theta = atan2(y, x);
-    *theta = -((*theta) * 180 / M_PI) + 90;
+    *theta = (atan2(y, x) * 180 / M_PI);
 
     return;
 }
