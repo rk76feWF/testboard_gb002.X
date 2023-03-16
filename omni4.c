@@ -21,8 +21,8 @@ void polar_to_omni4_duty(ps3_t *ps3, double *duty)
     double theta = ps3->stick.LStickTheta;
     double r = ps3->stick.LStickR;
 
-    duty[0] = cos((135 - theta) * (M_PI / 180)) * r / 64.0;
-    duty[1] = -cos((theta - 45) * (M_PI / 180)) * r / 64.0;
+    duty[0] = -cos((135 - theta) * (M_PI / 180)) * r / 64.0;
+    duty[1] = cos((theta - 45) * (M_PI / 180)) * r / 64.0;
     duty[2] = -duty[0];
     duty[3] = -duty[1];
 
